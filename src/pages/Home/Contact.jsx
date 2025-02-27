@@ -14,7 +14,13 @@ const Contact = () => {
                 <h2 className="text-gray-900 font-manrope text-4xl font-semibold leading-10 mb-9 lg:text-left text-center">
                   Reach Out To Us
                 </h2>
-                <form>
+                <form action="https://api.web3forms.com/submit" method="POST">
+                  <input
+                    type="hidden"
+                    name="access_key"
+                    value="444716fe-eed2-4571-9d25-449d64c9ba8e"
+                  ></input>
+
                   <input
                     type="text"
                     className="w-full h-14 shadow-sm text-gray-600 placeholder-text-400 text-lg font-normal leading-7 rounded-full border border-gray-200 focus:outline-none py-2 px-4 mb-8"

@@ -11,6 +11,21 @@ import CustomerProfile from "./pages/customer/CustomerProfile";
 import CustomerAddress from "./pages/customer/CustomerAddress";
 import CustomerProductDescription from "./pages/customer/CustomerProductDescription";
 import CustomerEditProfile from "./pages/customer/CustomerEditProfile";
+import AdminNavbar from "./pages/admin/AdminNavbar";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminAllOrders from "./pages/admin/AdminAllOrders";
+import AdminAllProducts from "./pages/admin/AdminAllProducts";
+import AdminProductDescription from "./pages/admin/AdminProductDescription";
+import AdminInventoryData from "./pages/admin/AdminInventoryData";
+import AdminOrderHistory from "./pages/admin/AdminOrderHistory";
+import AdminAddSupplier from "./pages/admin/AdminAddSupplier";
+import AdminSupplierDetails from "./pages/admin/AdminSupplierDetails";
+import AdminSupplyHistory from "./pages/admin/AdminSupplyHistory";
+import EditDelivaryProfile from "./pages/delivary/EditDelivaryProfile";
+import DelivaryProfile from "./pages/delivary/DelivaryProfile";
+import DelivaryHistory from "./pages/delivary/DelivaryHistory";
+import DelivaryItems from "./pages/delivary/DelivaryItems";
+import DelivaryNavbar from "./pages/delivary/DelivaryNavbar";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +77,79 @@ const router = createBrowserRouter([
       {
         path:"editcustomerprofile",
         element:<CustomerEditProfile />
+      },
+    ],
+  },
+  
+
+  {
+    path: "/delivary",
+    element: (
+      <div>
+        <DelivaryNavbar />
+      </div>
+    ),
+    children: [
+      {
+        path: "",
+        element: <DelivaryItems />,
+      },
+      {
+        path: "delivaryhistory",
+        element: <DelivaryHistory />,
+      },
+      {
+        path: "delivaryprofile",
+        element: <DelivaryProfile />,
+      },
+      {
+        path: "editdelivaryprofile",
+        element: <EditDelivaryProfile />,
+      },
+    ],
+  },
+
+  
+
+  {
+    path: "/admin",
+    element: <AdminNavbar />,
+    children: [
+      {
+        path: "",
+        element: <AdminDashboard />,
+      },
+      {
+        path: "allorders",
+        element: <AdminAllOrders />,
+      },
+      {
+        path: "allproducts",
+        element: <AdminAllProducts />,
+      },
+      {
+        path: "product",
+        element: <AdminProductDescription />,
+      },
+      {
+        path: "inventory",
+        element: <AdminInventoryData />,
+      },
+      {
+        path: "orderhistory",
+        element: <AdminOrderHistory />,
+      },
+      {
+        path: "supplyhistory",
+        element: <AdminSupplyHistory />,
+      },
+      {
+        path: "addsupplier",
+        element: <AdminAddSupplier />,
+      },
+      {
+        path: "supplierdetails",
+        element: <AdminSupplierDetails />,
       },
     ],
   },

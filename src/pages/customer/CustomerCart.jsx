@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import threeMistakes from "/Products/cocacola.webp";
 import november9 from "/Products/clothing.jpeg";
 
 const CustomerCart = () => {
-  const cartItems = [
+  const [cartItems, setCartItems] = useState([
     {
       id: 1,
       title: "It Ends with Us",
       author: "Colleen Hoover",
       price: 1200,
       quantity: 1,
-      image: threeMistakes, // Correct image reference
+      image: threeMistakes,
     },
     {
       id: 2,
@@ -18,9 +18,34 @@ const CustomerCart = () => {
       author: "Colleen Hoover",
       price: 1099,
       quantity: 1,
-      image: november9, // Correct image reference
+      image: november9,
     },
-  ];
+  ]);
+
+  // Function to increment quantity
+  const handleIncrement = (itemId) => {
+    setCartItems((prevCart) =>
+      prevCart.map((item) =>
+        item.id === itemId ? { ...item, quantity: item.quantity + 1 } : item
+      )
+    );
+  };
+
+  // Function to decrement quantity
+  const handleDecrement = (itemId) => {
+    setCartItems((prevCart) =>
+      prevCart.map((item) =>
+        item.id === itemId && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+    );
+  };
+
+  // Function to remove an item from the cart
+  const handleRemove = (itemId) => {
+    setCartItems((prevCart) => prevCart.filter((item) => item.id !== itemId));
+  };
 
   return (
     <div className="mx-auto max-w-screen-xl bg-gray-50 mt-6 rounded-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
@@ -46,13 +71,23 @@ const CustomerCart = () => {
                   </p>
                 </div>
                 <div className="flex flex-1 items-center justify-end gap-2">
-                  <input
-                    type="number"
-                    min="1"
-                    value={item.quantity}
-                    className="h-8 w-12 rounded-sm border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600"
-                  />
-                  <button className="text-gray-600 transition hover:text-red-600">
+                  <button
+                    className="px-2 py-1 bg-gray-200 text-gray-700 rounded"
+                    onClick={() => handleDecrement(item.id)}
+                  >
+                    -
+                  </button>
+                  <span className="text-sm font-medium">{item.quantity}</span>
+                  <button
+                    className="px-2 py-1 bg-gray-200 text-gray-700 rounded"
+                    onClick={() => handleIncrement(item.id)}
+                  >
+                    +
+                  </button>
+                  <button
+                    onClick={() => handleRemove(item.id)}
+                    className="text-gray-600 transition hover:text-red-600"
+                  >
                     <span className="sr-only">Remove item</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

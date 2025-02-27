@@ -16,3 +16,5 @@ npx shadcn@latest init
 npx shadcn@latest add button
 npm install react-icons
 npm install framer-motion
+npm install react-charts
+npm install react-chartjs-2 chart.js

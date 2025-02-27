@@ -21,7 +21,7 @@ const Footer = () => {
                 </h2>
                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
                   <li className="mb-4">
-                    <a href="/login" className="hover:underline">
+                    <a href="/signin" className="hover:underline">
                       Login
                     </a>
                   </li>
@@ -30,26 +30,25 @@ const Footer = () => {
                       Sign-Up
                     </a>
                   </li>
+                  
                 </ul>
               </div>
               <div>
                 <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white">
-                  Follow us
+                  Logins
                 </h2>
                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                  <li className="mb-4">
-                    <a
-                      href="https://github.com/SambhavSurthi"
-                      className="hover:underline "
-                    >
-                      Github
+                <li className="mb-4" >
+                    <a href="/admin" className="hover:underline">
+                      Admin
                     </a>
                   </li>
                   <li>
-                    <a href="" className="hover:underline">
-                      Instagram
+                    <a href="/delivary" className="hover:underline">
+                      Delivary
                     </a>
                   </li>
+                  
                 </ul>
               </div>
               <div>
